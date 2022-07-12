@@ -1,27 +1,13 @@
-# AngularP06Testes01
+# Angular-P06-Testes-01
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+Aplicação para estudo de Angular.
 
-## Development server
+Projeto desenvolvido ao longo de curso realizado, com a motivação de práticar o desenvolvimento de testes em projetos Angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 01. Ferramental de testes do Angular
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Visto sobre o Jasmine, framework de testes usado por padrão pelo Angular para a criação de testes.
+Visto sobre o Karma, framework utilizado pelo Angular para executar os testes criados através do Jasmine.
+Abordado sobre a estrutura mínima para declaração de testes. Tudo começa com uma chamada à função _describe_ que recebe o nome do elemento que será testado, seja ele um componente ou um serviço, e recebe uma _arrow function_ com toda a estrutura de execução de testes para aquele elemento. O elemento principal dentro da estrutura de execução de testes é a função _it_, representando uma unidade de teste, que recebe uma descrição do que é esperado para aquela unidade e uma _arrow function_ condendo a execução da unidade de teste. Comentado sobre o _template_ convencional de descrição do que é esperado pela unidade de teste, o '... should ... when ...'.
+Como testar as expectativas de retornos de execuções através do _expect_.
+Comentado também sobre alguns pontos de atenção com relação a melhor utilização de nomes de artefatos e funções na descrição do que será testado, para garantir a integridade dos nomes devido a possíveis refatorações.  
