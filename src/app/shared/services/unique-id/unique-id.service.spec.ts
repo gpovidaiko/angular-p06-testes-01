@@ -3,20 +3,48 @@
 import { UniqueIdService } from './unique-id.service';
 
 describe(UniqueIdService.name, () => {
-  /* let service: UniqueIdService;
+	let service: UniqueIdService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(UniqueIdService);
-  });
+	beforeEach(() => {
+	  /* TestBed.configureTestingModule({});
+	  service = TestBed.inject(UniqueIdService); */
+	  service = new UniqueIdService();
+	});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  }); */
+	it('should be created', () => {
+	  expect(service).toBeTruthy();
+	});
 
-  it(`#${UniqueIdService.prototype.generateUniqueIdWithPrefix.name} should generate id when called with prefix`, () => {
-	const service = new UniqueIdService();
-	const id = service.generateUniqueIdWithPrefix('app');
-	expect(id).toContain('app-');
-  })
+	it(`#${UniqueIdService.prototype.generateUniqueIdWithPrefix.name} should generate id when called with prefix`, () => {
+		const id = service.generateUniqueIdWithPrefix('app');
+		expect(id.startsWith('app-')).toBeTrue();
+	});
+
+	it(`#${UniqueIdService.prototype.generateUniqueIdWithPrefix.name} should not generate duplicate ID's when called multiple times`, () => {
+		const ids = new Set();
+		for (let index = 0; index < 50; index++) {
+			ids.add(service.generateUniqueIdWithPrefix('app'));
+		}
+		expect(ids.size).toBe(50);
+	});
+
+	it(`#${UniqueIdService.prototype.getNumbeOfGeneratedIds.name} should return the number of generated ID's when called`, () => {
+		service.generateUniqueIdWithPrefix('app');
+		service.generateUniqueIdWithPrefix('app');
+		expect(service.getNumbeOfGeneratedIds()).toBe(2);
+	});
+
+	it(`#${UniqueIdService.prototype.generateUniqueIdWithPrefix.name} should throw exception when called with empty prefix`, () => {
+		const emptyValues: any[] = [null, undefined, ''];
+		emptyValues.forEach(emptyValue => {
+			expect(() => service.generateUniqueIdWithPrefix(emptyValue)).withContext(`Empty value: ${emptyValue}`).toThrow()
+		})
+	});
+
+	it(`#${UniqueIdService.prototype.generateUniqueIdWithPrefix.name} should throw exception when called with invalid prefix`, () => {
+		const invalidValues: any[] = ['0', '1', '-'];
+		invalidValues.forEach(emptyValue => {
+			expect(() => service.generateUniqueIdWithPrefix(emptyValue)).withContext(`Invalid value: ${emptyValue}`).toThrow()
+		})
+	});
 });

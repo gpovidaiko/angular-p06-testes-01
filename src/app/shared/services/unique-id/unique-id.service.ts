@@ -6,6 +6,8 @@ export class UniqueIdService {
 
 	private numbeOfGeneratedIds = 0;
 
+	private validIdRegex = /^[A-Za-z]+[\w\-\:\.]*$/;
+
 	constructor() { }
 
 	getNumbeOfGeneratedIds(): number {
@@ -14,6 +16,8 @@ export class UniqueIdService {
 
 	generateUniqueIdWithPrefix(prefix: string): string {
 		if (!prefix) throw Error('Prefix can not be empty');
+
+		if (!this.validIdRegex.test(prefix)) throw Error('Prefix not valid');
 
 		const uniqueId = this.generateUniqueId();
 		this.numbeOfGeneratedIds++;
