@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-p06-testes-01';
+  likes = 0;
+
+  like(): void {
+	this.likes++;
+  }
 }

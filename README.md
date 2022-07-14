@@ -19,3 +19,8 @@ A utilização da função beforeEach para preparar o cenário de teste antes da
 Testando o lançamento de exceções através de _expect > toThrow_.
 Contextualizando o cenário de teste através de _expect > withContext_, podendo informar valores utilizados na execução por exemplo.
 Comentado sobre as diferenças entre as funções _toBe_, _ToBeTrue_ e _ToBeTruthy_ quando utilizados para comparar valores booleanos literais ou não literais.
+
+## 03. O componente LikeWidget
+
+Criação de um componente composto por um botão de curtida e uma contagem de curtidas.
+Implementada a acessibilidade desse componente fazendo o ícone de curtida ser selecionável através do _tabindex="0"_ e lido como um botão através de _role="button"_. O atributo _aria-describedby_ conecta o botão de curtir com o texto de quantidade de curtidas através do _id_, para que o leitor de tela leia o conteúdo de _aria-label_ quando o foco estiver no botão de curtir. O atributo _aria-live_ indica ao leitor de tela para reler o conteúdo daquele elemento sempre que houver alterações. O atributo _aria-atomic_ indica se deve ser relido todo o conteúdo relacionado, ou só o que for indicado como relevante.
