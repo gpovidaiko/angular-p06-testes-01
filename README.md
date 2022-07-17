@@ -42,3 +42,7 @@ Para execução de testes em ambientes de integração continua foi comentado so
 Visto como configurar executores de navegador customizados, informando o navegador utilizado como base e as flags e parâmetros informados na execução.
 Para ambientes de integração continua é interessante emitir um relatório de execução dos teste em um formato _xml_ específico. Para a emissão desse relatório foi importado o pacote _'karma-junit-reporter', adicionado a lista de _plugins_ do arquivo _karma.conf.js_ e criado um _script_ de execução informado o parâmetro _-\-reports junit_.
 Para ter uma visibilidade da cobertura dos testes da aplicação foi criado um _script_ de execução informando os parâmetros _-\-source-map=true_ e _-\-code-coverage=true_. Executando esse _script_ temos na saída um resumo dos percentuais de cobertura dos testes. Também é gerada uma pasta _coverage_ na raiz do projeto onde é possível encontrar um relatório completo da cobertura dos testes em _html_.
+
+## I. Cobertura de testes de _app.component_
+
+O projeto desenvolvido ao decorrer do módulo não teve o arquivo de testes unitário de _app.component.ts_ desenvolvido. Devido a este projeto ter sido criado com o auxilio do _Angular CLI_, este arquivo esteve presente desde o começo, fazendo necessário testar o método de incremento de curtidas para atingir a uma cobertura de 100% do projeto.

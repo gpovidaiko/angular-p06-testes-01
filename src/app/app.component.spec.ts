@@ -28,9 +28,21 @@ describe(AppComponent.name, () => {
 		expect(app).toBeTruthy();
 	});
 
-	it(`should have as title 'angular-p06-testes-01'`, () => {
+	it(`should have as title equals 'angular-p06-testes-01' when initialized`, () => {
 		expect(app.title).toEqual('angular-p06-testes-01');
 	});
+
+	it('should have likes equals 0 when initialized', () => {
+		expect(app.likes).toEqual(0);
+	})
+
+	it(`#${AppComponent.prototype.like.name} should increment likes when called`, () => {
+		const target = 10;
+		for (let index = 0; index < target; index++) {
+			app.like();
+		}
+		expect(app.likes).toBe(target);
+	})
 
 	/* it('should render title', () => {
 		const compiled = fixture.nativeElement as HTMLElement;
