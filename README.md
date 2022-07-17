@@ -46,3 +46,7 @@ Para ter uma visibilidade da cobertura dos testes da aplicação foi criado um _
 ## I. Cobertura de testes de _app.component_
 
 O projeto desenvolvido ao decorrer do módulo não teve o arquivo de testes unitário de _app.component.ts_ desenvolvido. Devido a este projeto ter sido criado com o auxilio do _Angular CLI_, este arquivo esteve presente desde o começo, fazendo necessário testar o método de incremento de curtidas para atingir a uma cobertura de 100% do projeto.
+
+## II. Ajuste em _unique-id.service.spec.ts_
+
+Ajustes no arquivo de testes do serviço _unique-id.service_ para passar a usar a _API TestBed_, vista momentos depois.

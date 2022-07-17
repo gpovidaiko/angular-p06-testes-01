@@ -1,4 +1,4 @@
-// import { TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { UniqueIdService } from './unique-id.service';
 
@@ -6,9 +6,10 @@ describe(UniqueIdService.name, () => {
 	let service: UniqueIdService;
 
 	beforeEach(() => {
-	  /* TestBed.configureTestingModule({});
-	  service = TestBed.inject(UniqueIdService); */
-	  service = new UniqueIdService();
+	  TestBed.configureTestingModule({
+		providers: [UniqueIdService]
+	  });
+	  service = TestBed.inject(UniqueIdService);
 	});
 
 	it('should be created', () => {
@@ -22,10 +23,11 @@ describe(UniqueIdService.name, () => {
 
 	it(`#${UniqueIdService.prototype.generateUniqueIdWithPrefix.name} should not generate duplicate ID's when called multiple times`, () => {
 		const ids = new Set();
-		for (let index = 0; index < 50; index++) {
+		const target = 50;
+		for (let index = 0; index < target; index++) {
 			ids.add(service.generateUniqueIdWithPrefix('app'));
 		}
-		expect(ids.size).toBe(50);
+		expect(ids.size).toBe(target);
 	});
 
 	it(`#${UniqueIdService.prototype.getNumbeOfGeneratedIds.name} should return the number of generated ID's when called`, () => {
